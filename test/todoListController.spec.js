@@ -4,6 +4,7 @@ describe( 'todoListController', function() {
   beforeEach( module( 'todoList' ));
 
   beforeEach( inject( function( $controller ){
+    localStorage.clear();
     ctrl = $controller( 'todoListController' );
     taskList = [
       {

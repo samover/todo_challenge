@@ -39,7 +39,7 @@
     <article id='toDoList'>
       <ul class='list-group'>
 
-        <li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items'>
+        <li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items track by $index'>
            <div class="checkbox">
               <label for='todoItem'>
                 <input id='todoItem' type="checkbox"> {{ task.name }} 
