@@ -3,24 +3,14 @@
 
   app.controller( 'todoListController', [ function() {
     var self = this; 
+    self.newTask = {};
+    self.listTasks = { "items": [] };
 
-    self.listTasks = {
-      "items": [
-        {
-          'title': 'A todo item',
-          'status': 0,
-          'created_at': 1449322282417
-        },
-        {
-          'title': 'A second todo item',
-          'status': 1,
-          'created_at': 1449322313457
-        }
-      ]
-    };
-
-    self.addTask = function( newTask ){
-      self.listTasks.items.push( newTask );
+    self.addTask = function(){
+      self.newTask.createdOn = self.newTask.createdOn || Date.now();
+      self.newTask.status = self.newTask.status || 1;
+      self.listTasks.items.push( self.newTask );
+      self.newTask = {};
     };
 
   }]);

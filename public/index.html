@@ -11,38 +11,42 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="js/app.js"></script>
-  <script src="js/todoListController.js"></script>
   </head>
 
 <body ng-controller='todoListController as listCtrl'>
+
   <header class='navbar text-center navbar-default'>
-    <h1>
-      <img class='logo' alt="Brand" width="50px" src="images/logo.png">
-      A Minimal ToDo List
-    </h1> 
+    <h1> <img class='logo' alt="Brand" width="50px" src="images/logo.png"> A Minimal ToDo List </h1> 
   </header>
 
   <main class='jumbotron col-md-6 col-md-offset-3'>
     <section id='newTaskForm'>
-      <form class='form-inline'>
+
+      <form class='form-inline' name='newTaskForm' ng-submit='newTaskForm.$valid && listCtrl.addTask()' novalidate>
+
         <fieldset class='form-group'>
-          <label for='newTask'>
-            <input class='form-control' id='newTask' placeholder='What needs to be done' type='text'>
+          <label for='taskName'>
+            <input ng-model='listCtrl.newTask.name' class='form-control' id='taskName' placeholder='A new task...' type='text' required />
           </label>
         </fieldset>
+
         <button type='submit' class='btn btn-primary'>Add new task</button>
+
       </form>
+
     </section>
 
     <article id='toDoList'>
       <ul class='list-group'>
+
         <li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items'>
            <div class="checkbox">
               <label for='todoItem'>
-                <input id='todoItem' type="checkbox"> {{ task.title }} 
+                <input id='todoItem' type="checkbox"> {{ task.name }} 
               </label>
             </div>
         </li>
+
       </ul>
 
       <div id='itemsLeftCount'>
