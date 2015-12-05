@@ -65,4 +65,12 @@ describe( 'todoListController', function() {
     });
   });
 
+  describe( 'Filter tasks', function() {
+    it( 'shows all tasks', function() {
+    });
+    it( 'filters all completed tasks', function() {
+    });
+    it( 'filters all acitve tasks', function() {
+    });
+  });
 });
