@@ -1,0 +1,24 @@
+{
+  "name": "todo_list",
+  "authors": [
+    "samover <samuel.overloop@gmail.com>"
+  ],
+  "description": "A minimal todo list in angularJS",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.6",
+    "angular": "~1.4.8",
+    "angular-resource": "~1.4.8"
+  }
+}
