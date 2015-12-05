@@ -19,6 +19,10 @@
       ]
     };
 
+    self.addTask = function( newTask ){
+      self.listTasks.items.push( newTask );
+    };
+
   }]);
 
 })();
