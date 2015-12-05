@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html ng-app='todoList'>
+
+<head>
+  <meta charset='utf-8' />
+  <title> A Minimal Todo List Built with AngularJS </title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/master.css">
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="js/app.js"></script>
+  </head>
+
+<body ng-controller='todoListController as listCtrl'>
+
+  <header class='navbar text-center navbar-default'>
+    <h1> <img class='logo' alt="Brand" width="50px" src="images/logo.png"> A Minimal ToDo List </h1> 
+  </header>
+
+  <main class='jumbotron col-md-6 col-md-offset-3'>
+    <section id='newTaskForm'>
+
+      <form class='form-inline' name='newTaskForm' ng-submit='newTaskForm.$valid && listCtrl.addTask()' novalidate>
+
+        <fieldset class='form-group'>
+          <label for='taskName'>
+            <input ng-model='listCtrl.newTask.name' class='form-control' id='taskName' placeholder='A new task...' type='text' required />
+          </label>
+        </fieldset>
+
+        <button type='submit' class='btn btn-primary'>Add new task</button>
+
+      </form>
+
+    </section>
+
+    <article id='toDoList'>
+      <ul class='list-group'>
+
+        <li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items track by $index'>
+          <div class='inputTask'>
+            <form role='form' class='form-group'>
+              <input ng-model='task.status' ng-true-value='0' ng-false-value='1'
+              id='todoItem' ng-click='listCtrl.storeData()' type="checkbox" /> 
+              <span>
+                <input class='form-control readTask' readonly 
+                  ng-show='!listCtrl.isToEdit($index)' 
+                  ng-click='listCtrl.toggleEdit($index)' value='{{ task.name }}'
+                  type='text' />
+                <input class='editTask form-control' 
+                  ng-show='listCtrl.isToEdit($index)' 
+                  ng-blur='listCtrl.editTask()' type='text' 
+                  ng-model='task.name' value='{{ task.name }}' />
+              </span>
+            </form>
+          </div>
+        </li>
+
+      </ul>
+
+      <div id='itemsLeftCount'>
+        <p><small>2 items left</small></p>
+      </div>
+
+    </article>
+
+    <section id='listControls'>
+      <button type="button" class="btn btn-primary custom">All</button>
+      <button type="button" class="btn btn-primary custom">Active</button>
+      <button type="button" class="btn btn-primary custom">Complete</button>
+      <button type="button" class="btn btn-primary custom">Clear All</button>
+    </section>
+  </main>
+
+  <footer>
+  </footer>
+</body>
+</html>
