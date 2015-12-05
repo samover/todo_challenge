@@ -40,11 +40,16 @@
       <ul class='list-group'>
 
         <li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items track by $index'>
-           <div class="checkbox">
-              <label for='todoItem'>
-                <input id='todoItem' type="checkbox"> {{ task.name }} 
-              </label>
-            </div>
+          <div class='inputTask'>
+            <form role='form' class='form-group'>
+              <input id='todoItem' type="checkbox"> 
+
+              <span>
+                <input class='form-control readTask' readonly ng-show='!listCtrl.isToEdit($index)' ng-click='listCtrl.toggleEdit($index)' value='{{ task.name }}'type='text' />
+                <input class='editTask form-control' ng-show='listCtrl.isToEdit($index)' ng-blur='listCtrl.editTask()' type='text' ng-model='task.name' value='{{ task.name }}'>
+              </span>
+            </form>
+          </div>
         </li>
 
       </ul>

@@ -2,8 +2,12 @@
   var app = angular.module( 'todoList', [ 'ngResource' ] );
 
   app.controller( 'todoListController', [ function() {
-    var self = this; 
+    var self = this,
+      dataToStore;
+
     self.newTask = {};
+    self.edit = false;
+    self.selectedTask = -1;
 
     if( localStorage.getItem( 'todoList' ) === null ) {
       self.listTasks = { "items": [] };
@@ -17,10 +21,32 @@
       self.listTasks.items.push( self.newTask );
       self.newTask = {};
 
-      var dataToStore = JSON.stringify( self.listTasks );
+      dataToStore = JSON.stringify( self.listTasks );
       localStorage.setItem( 'todoList', dataToStore );
     };
 
+    self.toggleEdit = function(i) {
+      self.edit = !self.edit;
+      self.selectTask(i);
+      console.log(self.edit);
+    }
+
+    self.editTask = function() {
+      self.toggleEdit();
+      self.selectedTask = -1;
+      console.log(self.edit);
+      dataToStore = JSON.stringify( self.listTasks );
+      localStorage.setItem( 'todoList', dataToStore );
+    };
+
+    self.selectTask = function(i) {
+      console.log(i);
+      self.selectedTask = i;
+    };
+
+    self.isToEdit = function(i) {
+      return self.selectedTask === i;
+    };
   }]);
 
 })();
