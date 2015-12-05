@@ -20,27 +20,36 @@
       self.newTask.status = self.newTask.status || 1;
       self.listTasks.items.push( self.newTask );
       self.newTask = {};
-
-      dataToStore = JSON.stringify( self.listTasks );
-      localStorage.setItem( 'todoList', dataToStore );
+      self.storeData();
     };
 
     self.toggleEdit = function(i) {
       self.edit = !self.edit;
       self.selectTask(i);
-      console.log(self.edit);
     }
 
     self.editTask = function() {
       self.toggleEdit();
       self.selectedTask = -1;
-      console.log(self.edit);
-      dataToStore = JSON.stringify( self.listTasks );
-      localStorage.setItem( 'todoList', dataToStore );
+      self.storeData();
     };
 
+    self.completeTask = function(i) {
+      if(self.listTasks.items[i].status === 0) {
+        self.listTasks.items[i].status = 1;
+      } else {
+        self.listTasks.items[i].status = 0;
+      }
+
+      self.storeData();
+    }
+    
+    self.storeData = function() {
+      dataToStore = JSON.stringify( self.listTasks );
+      localStorage.setItem( 'todoList', dataToStore );
+    }
+
     self.selectTask = function(i) {
-      console.log(i);
       self.selectedTask = i;
     };
 

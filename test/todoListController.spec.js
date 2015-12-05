@@ -52,5 +52,17 @@ describe( 'todoListController', function() {
       taskList = JSON.parse(localStorage.getItem('todoList'));      
       expect( taskList.items ).toEqual([ new_task ]);
     });
+
+    it( 'marks a task as done', function() {
+      ctrl.completeTask(0);
+      expect(ctrl.listTasks.items[0].status).toEqual(0);
+    });
+
+    it( 'unmarks a task as done', function() {
+      ctrl.completeTask(0);
+      ctrl.completeTask(0);
+      expect(ctrl.listTasks.items[0].status).toEqual(1);
+    });
   });
+
 });
