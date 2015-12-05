@@ -36,17 +36,10 @@
 
     <article id='toDoList'>
       <ul class='list-group'>
-        <li class='list-group-item'>
+        <li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items'>
            <div class="checkbox">
               <label for='todoItem'>
-                <input id='todoItem' type="checkbox"> A todo Item
-              </label>
-            </div>
-        </li>
-        <li class='list-group-item'>
-           <div class="checkbox">
-              <label for='todoItem'>
-                <input id='todoItem' type="checkbox"> A second todo Item
+                <input id='todoItem' type="checkbox"> {{ task.title }} 
               </label>
             </div>
         </li>
