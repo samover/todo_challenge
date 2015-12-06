@@ -107,7 +107,13 @@ describe( 'A minimal toDo list', function() {
     });
 
     it( 'shows 0 of active tasks left if no tasks given', function() {
-      expect(taskCount.getText()).toEqual('0 items left');
+      expect(taskCount.getText()).toEqual('No items left');
+    });
+
+    it( 'shows 1 item left if 1 active task is given', function() {
+      newTask.sendKeys( 'A new task to do' );
+      addTask.click();
+      expect(taskCount.getText()).toEqual('1 item left');
     });
 
     it( 'shows 2 items left if 2 active tasks are given', function() {

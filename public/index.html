@@ -62,7 +62,12 @@
       </ul>
 
       <div id='itemsLeftCount' >
-        <p><small>{{ listCtrl.activeTasks() }} items left</small></p>
+        <p><small>
+          <ng-pluralize count="listCtrl.activeTasks()"
+                        when="{ '0': 'No items left',
+                                'one': '1 item left',
+                                'other': '{} items left' }"></ng-pluralize>
+        </small></p>
       </div>
 
     </article>
