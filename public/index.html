@@ -39,20 +39,21 @@
     <article id='toDoList'>
       <ul class='list-group'>
 
-        <li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items track by $index'>
+        <li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items
+        | filter: { status: listCtrl.filter}'>
+        <!--<li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items-->
+        <!--track by $index | filter: { status: 1}'>-->
           <div class='inputTask'>
             <form role='form' class='form-group'>
               <input ng-model='task.status' ng-true-value='0' ng-false-value='1'
               id='todoItem' ng-click='listCtrl.storeData()' type="checkbox" /> 
-              <span>
-                <input class='form-control readTask' readonly 
-                  ng-show='!listCtrl.isToEdit($index)' 
-                  ng-click='listCtrl.toggleEdit($index)' value='{{ task.name }}'
-                  type='text' />
-                <input class='editTask form-control' 
-                  ng-show='listCtrl.isToEdit($index)' 
-                  ng-blur='listCtrl.editTask()' type='text' 
-                  ng-model='task.name' value='{{ task.name }}' />
+              <span >
+                <input ng-class='{ strike: !task.status, editable: focused,
+                readable: !focused }' class='form-control'
+                ng-readonly='!focused' ng-model='task.name' value='{{ task.name
+                }}' type='text' ng-blur='focused=false' ng-focus='focused=true'
+                ng-change='listCtrl.storeData()' ng-model-options="{ updateOn:
+                'blur'}" />
               </span>
             </form>
           </div>
@@ -60,16 +61,16 @@
 
       </ul>
 
-      <div id='itemsLeftCount'>
+      <div id='itemsLeftCount' >
         <p><small>2 items left</small></p>
       </div>
 
     </article>
 
     <section id='listControls'>
-      <button type="button" class="btn btn-primary custom">All</button>
-      <button type="button" class="btn btn-primary custom">Active</button>
-      <button type="button" class="btn btn-primary custom">Complete</button>
+      <button type="button" ng-click='listCtrl.filter=""' class="btn btn-primary custom">All</button>
+      <button type="button" ng-click='listCtrl.filter=1' class="btn btn-primary custom">Active</button>
+      <button type="button" ng-click='listCtrl.filter=0' class="btn btn-primary custom">Complete</button>
       <button type="button" class="btn btn-primary custom">Clear All</button>
     </section>
   </main>
