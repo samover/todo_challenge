@@ -70,5 +70,17 @@ describe( 'todoListController', function() {
       ctrl.clearCompleted();
       expect(ctrl.listTasks.items.length).toEqual(1);  
     });
+
+    it( 'has no tasks left with three completed tasks before clearing', function() {
+      ctrl.newTask.name = 'A third todo item';
+      ctrl.addTask();
+
+      for( var i = 0; i < 3; i++ ) {
+        ctrl.listTasks.items[i].status = 0;
+      }
+
+      ctrl.clearCompleted();
+      expect(ctrl.listTasks.items.length).toEqual(0);  
+    });
   });
 });

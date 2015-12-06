@@ -29,11 +29,10 @@
     self.clearCompleted = function() {
       var tasks = self.listTasks.items, i;
 
-      for( i = 0; i < tasks.length; i++) {
-        if( tasks[i].status === 0 ) {
-          tasks.splice(i, 1); 
-        }
-      }
+      self.listTasks.items = tasks.filter(function(task){
+        return task.status === 1;
+      });
+      self.storeData();
     };
 
     self.activeTasks = function() {
