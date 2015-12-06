@@ -40,9 +40,7 @@
       <ul class='list-group'>
 
         <li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items
-        | filter: { status: listCtrl.filter}'>
-        <!--<li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items-->
-        <!--track by $index | filter: { status: 1}'>-->
+        | filter: { status: listCtrl.filter} track by $index'>
           <div class='inputTask'>
             <form role='form' class='form-group'>
               <input ng-model='task.status' ng-true-value='0' ng-false-value='1'

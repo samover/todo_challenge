@@ -96,14 +96,6 @@ describe( 'A minimal toDo list', function() {
       viewActive = browser.findElement(by.buttonText('Active'));
       viewCompleted = browser.findElement(by.buttonText('Complete'));
       taskCount = browser.findElement(by.css('#itemsLeftCount'));
-      //newTask.sendKeys( 'A new task to do' );
-      //addTask.click();
-      //newTask.sendKeys( 'Another task to do' );
-      //addTask.click();
-      //newTask.sendKeys( 'Third and last task ');
-      //addTask.click();
-       
-      //tickComplete = element.all(by.model( 'task.status' )).first().click();
     });
 
     it( 'shows 0 of active tasks left if no tasks given', function() {
