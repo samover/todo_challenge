@@ -1,8 +1,8 @@
 {
   "name": "todo_list",
   "version": "1.0.0",
-  "description": "* Deadline: submit completed pull request by 9am on Monday * You may use whatever level of JavaScript you feel comfortable with - pure JS, jQuery, Angular, or whatever weird and wonderful framework you want to try. Extra points for DogeScript",
-  "main": "index.js",
+  "description": "A minimal todo list in angular with on sinatra framework",
+  "main": "app.js",
   "directories": {
     "doc": "docs"
   },
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/samover/todo_challenge.git"
   },
-  "author": "",
+  "author": "samuel.overloop@gmail.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/samover/todo_challenge/issues"
