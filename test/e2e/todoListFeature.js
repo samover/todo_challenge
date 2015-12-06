@@ -1,5 +1,5 @@
 describe( 'A minimal toDo list', function() {
-  var newTask, addTask, newItem;
+  var newTask, addTask, newItem, tickComplete;
 
   beforeEach(function() {
     browser.get( 'http://localhost:9292' );
@@ -15,6 +15,8 @@ describe( 'A minimal toDo list', function() {
       addTask = browser.findElement(by.buttonText('Add new task'));
       newTask.sendKeys( 'A new task to do' );
       addTask.click();
+      newItem = browser.findElement(by.className('readable'));
+      tickComplete = element(by.model( 'task.status' ));
     });
 
     afterEach(function() {
@@ -22,12 +24,10 @@ describe( 'A minimal toDo list', function() {
     });
 
     it( 'adds a a new task', function() {
-      newItem = browser.findElement(by.className('readable'));
       expect(newItem.getAttribute('value')).toEqual( 'A new task to do' );
     });
 
-    it ('edits ane existing task', function() {
-      newItem = browser.findElement(by.className('readable'));
+    it ('edits an existing task', function() {
       newItem.click();
       newItem = browser.findElement(by.className('editable'))
       newItem.clear();
@@ -37,6 +37,18 @@ describe( 'A minimal toDo list', function() {
       newItem = browser.findElement(by.className('readable'));
       expect(newItem.getAttribute('value')).toEqual( 'An edited task' );
     });
+
+    it( 'is not marked as done', function() {
+      expect(tickComplete.isSelected()).toBe(false);
+      expect(newItem.getCssValue('text-decoration')).toEqual('none');
+    });
+
+    it ( 'marks an existing task as done', function() {
+      tickComplete.click();
+      expect(tickComplete.isSelected()).toBe(true);
+      expect(newItem.getCssValue('text-decoration')).toEqual('line-through');
+    });
+
   });
 
 });
