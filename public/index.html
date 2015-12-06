@@ -45,14 +45,12 @@
               <input ng-model='task.status' ng-true-value='0' ng-false-value='1'
               id='todoItem' ng-click='listCtrl.storeData()' type="checkbox" /> 
               <span >
-                <input ng-class='{strike: !task.status}' class='form-control readTask' readonly 
-                  ng-show='!listCtrl.isToEdit($index)' 
-                  ng-click='listCtrl.toggleEdit($index)' value='{{ task.name }}'
-                  type='text' />
-                <input class='editTask form-control' 
-                  ng-show='listCtrl.isToEdit($index)' 
-                  ng-blur='listCtrl.editTask()' type='text' 
-                  ng-model='task.name' value='{{ task.name }}' />
+                <input ng-class='{ strike: !task.status, editable: focused,
+                readable: !focused }' class='form-control'
+                ng-readonly='!focused' ng-model='task.name' value='{{ task.name
+                }}' type='text' ng-blur='focused=false' ng-focus='focused=true'
+                ng-change='listCtrl.storeData()' ng-model-options="{ updateOn:
+                'blur'}" />
               </span>
             </form>
           </div>
@@ -60,7 +58,7 @@
 
       </ul>
 
-      <div id='itemsLeftCount'>
+      <div id='itemsLeftCount' >
         <p><small>2 items left</small></p>
       </div>
 

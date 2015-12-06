@@ -21,19 +21,20 @@ div.inputTask span {
   padding-left: 20px;
 }
 
-input.readTask {
+input.readable {
   border-color: transparent;
   box-shadow: none;
   background-color: transparent !important;
+}
+
+input.editable {
+  border-color: blue;
 }
 
 .strike {
   text-decoration: line-through;
 }
 
-.editTask {
-  border-color: blue;
-}
 
 #itemsLeftCount {
   padding-left: 20px;
