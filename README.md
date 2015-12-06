@@ -1,16 +1,16 @@
-# Todo Challenge
+# Todo Challenge [![Build Status](https://travis-ci.org/samover/todo_challenge.svg?branch=master)](https://travis-ci.org/samover/todo_challenge) 
 
-* Deadline: submit completed pull request by 9am on Monday
-* You may use whatever level of JavaScript you feel comfortable with - pure JS, jQuery, Angular, or whatever weird and wonderful framework you want to try. Extra points for DogeScript
+![screenshot](/public/images/screenshot.png)
 
-Steps
--------
+## Way of Approaching the Challenge
 
-1. Fill out your learning plan self review for the week: https://github.com/makersacademy/learning_plan 
-2. Fork this repo, and clone to your local machine
-3. Complete the following challenge:
+The [desired product](#desired-product) is a toDo list as a single page web application. This project uses [AngularJS](https://www.angularjs.org) for the front-end on a [Sinatra](http://sinatrarb.com) server. 
 
-## Challenge
+The product can be previewed on [Heroku](https://minimal-todo-list.herokuapp.com/).
+
+As always at [Makers Academy], the approach is TDD. For testing I have used Karma and Protractor.
+
+## The Desired Product
 
 ![Todo mockup](https://makersacademy.mybalsamiq.com/mockups/2914603.png?key=afabb09aef2901a2732515ae4349c1ec0458294b)
 
@@ -48,26 +48,4 @@ I want to be able to clear my completed tasks
 So I never see them again
 ```
 
-As you may imagine, implementing a To-do list is very much a solved problem. However, we are mainly interested in seeing how you approach testing and design. We are looking for:
 
-* well written, well structured acceptance and unit tests
-* clear and expressive JavaScript
-* good HTML5 markup
-
-Don't worry about deployment, and make sure you read the CONTRIBUTING.md when submitting a pull request.
-
-## Extensions
-
-* Deploy the app
-* Create a persistance layer (e.g. MongoDB), or use LocalStorage or the filesystem through Node
-* Make it look purdy (CSS) - try a framework like Bootstrap or Foundation
-
-## CI
-
-Read the `.travis.yml` if any of the steps below don't make sense! 
-
-* Make sure you have set up `npm test` in your `package.json` so that it runs your Karma tests
-* Make sure you have your Protractor config file at `e2e/conf.js`
-* Make sure `npm start` spins up whatever serves up your app - `http-server`, Sinatra or Node
-
-Good luck!
