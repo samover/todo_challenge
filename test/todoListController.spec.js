@@ -51,4 +51,24 @@ describe( 'todoListController', function() {
       expect(ctrl.activeTasks()).toEqual(1);  
     });
   });
+
+  describe( 'clear completed tasks', function() {
+    beforeEach(function() { 
+      ctrl.newTask.name = 'A todo item';
+      ctrl.addTask();
+      ctrl.newTask.name = 'A second todo item';
+      ctrl.addTask();
+    });
+
+    it( 'has 2 tasks left with two active tasks before clearing', function() {
+      ctrl.clearCompleted();
+      expect(ctrl.listTasks.items.length).toEqual(2);  
+    });
+
+    it( 'has 1 task left with one active and one complete before clearing', function() {
+      ctrl.listTasks.items[0].status = 0;
+      ctrl.clearCompleted();
+      expect(ctrl.listTasks.items.length).toEqual(1);  
+    });
+  });
 });

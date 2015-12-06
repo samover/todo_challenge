@@ -26,6 +26,16 @@
       localStorage.setItem( 'todoList', dataToStore );
     }
 
+    self.clearCompleted = function() {
+      var tasks = self.listTasks.items, i;
+
+      for( i = 0; i < tasks.length; i++) {
+        if( tasks[i].status === 0 ) {
+          tasks.splice(i, 1); 
+        }
+      }
+    };
+
     self.activeTasks = function() {
       var tasks = self.listTasks.items, i, 
         count = 0;
