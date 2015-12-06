@@ -30,5 +30,8 @@
   },
   "dependencies": {
     "bower": "^1.6.9"
-  }
+  },
+  "scripts": {
+      "postinstall": "bower install"
+    }
 }
