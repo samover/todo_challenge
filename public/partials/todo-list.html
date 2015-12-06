@@ -1,0 +1,27 @@
+<ul class='list-group'>
+
+  <li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items
+  | filter: { status: listCtrl.filter} track by $index'>
+
+    <div class='inputTask'>
+
+      <form role='form' class='form-group'>
+        <input ng-model='task.status' ng-true-value='0' ng-false-value='1'
+        id='todoItem' ng-click='listCtrl.storeData()' type="checkbox" /> 
+
+        <span >
+          <input ng-class='{ strike: !task.status, editable: focused,
+          readable: !focused }' class='form-control'
+          ng-readonly='!focused' ng-model='task.name' value='{{ task.name
+          }}' type='text' ng-blur='focused=false' ng-focus='focused=true'
+          ng-change='listCtrl.storeData()' ng-model-options="{ updateOn:
+          'blur'}" />
+        </span>
+
+      </form>
+
+    </div>
+
+  </li>
+
+</ul>
