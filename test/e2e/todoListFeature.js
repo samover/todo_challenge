@@ -98,6 +98,10 @@ describe( 'A minimal toDo list', function() {
       taskCount = browser.findElement(by.css('#itemsLeftCount'));
     });
 
+    afterEach(function() {
+      browser.executeScript('localStorage.clear();');
+    });
+
     it( 'shows 0 of active tasks left if no tasks given', function() {
       expect(taskCount.getText()).toEqual('No items left');
     });
@@ -117,4 +121,27 @@ describe( 'A minimal toDo list', function() {
     });
   });
 
+  describe( 'Clear completed tasks', function() {
+    beforeEach(function() {
+      clearTasks = browser.findElement(by.buttonText('Clear All'));
+      newTask = browser.findElement(by.model('listCtrl.newTask.name'));
+      addTask = browser.findElement(by.buttonText('Add new task'));
+      viewAll = browser.findElement(by.buttonText('All'));
+      newTask.sendKeys( 'A new task to do' );
+      addTask.click();
+      newTask.sendKeys( 'Another task to do' );
+      addTask.click();
+    });
+    
+    afterEach(function() {
+      browser.executeScript('localStorage.clear();');
+    });
+
+    it( 'clears all completed tasks', function() {
+      tickComplete = element.all(by.model( 'task.status' )).first().click();
+      clearTasks.click();
+      viewAll.click();
+      expect(element.all(by.className('list-group-item')).count()).toEqual(1);
+    });
+  });
 });
