@@ -1,0 +1,15 @@
+<section id='newTaskForm'>
+  <form class='form-inline' name='newTaskForm' 
+        ng-submit='newTaskForm.$valid && listCtrl.addTask()' novalidate>
+
+    <fieldset class='form-group'>
+      <label for='taskName'>
+        <input ng-model='listCtrl.newTask.name' class='form-control' 
+              id='taskName' placeholder='A new task...' type='text' required />
+      </label>
+    </fieldset>
+
+    <button type='submit' class='btn btn-primary'>Add new task</button>
+
+  </form>
+</section>
