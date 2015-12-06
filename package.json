@@ -7,7 +7,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test-karma && npm run test-protractor",
+    "test-karma": "karma start test/karma.conf.js --single-run",
+    "test-protractor": "protractor test/e2e/conf.js --browser=firefox"
   },
   "repository": {
     "type": "git",
