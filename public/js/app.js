@@ -26,6 +26,21 @@
       localStorage.setItem( 'todoList', dataToStore );
     }
 
+    self.activeTasks = function() {
+      var tasks = self.listTasks.items, i, 
+        count = 0;
+
+      console.log(tasks);
+
+      for( i = 0; i < tasks.length; i++) {
+        if( tasks[i].status === 1 ) {
+          count++;
+        }
+      }
+      console.log(count);
+      return count;
+    }
+
   }]);
 
 })();
