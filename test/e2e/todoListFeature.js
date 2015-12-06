@@ -1,5 +1,5 @@
 describe( 'A minimal toDo list', function() {
-  var newTask, addTask, newItem, tickComplete;
+  var newTask, addTask, newItem, tickComplete, viewAll, viewActive, viewCompleted;
 
   beforeEach(function() {
     browser.get( 'http://localhost:9292' );
@@ -48,7 +48,44 @@ describe( 'A minimal toDo list', function() {
       expect(tickComplete.isSelected()).toBe(true);
       expect(newItem.getCssValue('text-decoration')).toEqual('line-through');
     });
+  });
 
+  describe( 'Viewing and filtering tasks', function() {
+    beforeEach(function() {
+      newTask = browser.findElement(by.model('listCtrl.newTask.name'));
+      addTask = browser.findElement(by.buttonText('Add new task'));
+      viewAll = browser.findElement(by.buttonText('All'));
+      viewActive = browser.findElement(by.buttonText('Active'));
+      viewCompleted = browser.findElement(by.buttonText('Complete'));
+      
+      newTask.sendKeys( 'A new task to do' );
+      addTask.click();
+      newTask.sendKeys( 'Another task to do' );
+      addTask.click();
+      newTask.sendKeys( 'Third and last task ');
+      addTask.click();
+       
+      tickComplete = element.all(by.model( 'task.status' )).first().click();
+    });
+
+    afterEach(function() {
+      browser.executeScript('localStorage.clear();');
+    });
+
+    it( 'can show only tasks that are active', function() {
+      viewActive.click();
+      expect(element.all(by.className('inputTask')).count()).toEqual(2);
+    });
+
+    it( 'can show only tasks that are completed', function() {
+      viewCompleted.click();
+      expect(element.all(by.className('inputTask')).count()).toEqual(1);
+    });
+
+    it( 'can show all tasks, completed and active', function() {
+      viewAll.click();
+      expect(element.all(by.className('inputTask')).count()).toEqual(3);
+    });
   });
 
 });

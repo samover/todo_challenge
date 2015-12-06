@@ -39,7 +39,10 @@
     <article id='toDoList'>
       <ul class='list-group'>
 
-        <li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items track by $index'>
+        <li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items
+        | filter: { status: listCtrl.filter}'>
+        <!--<li class='list-group-item' ng-repeat='task in listCtrl.listTasks.items-->
+        <!--track by $index | filter: { status: 1}'>-->
           <div class='inputTask'>
             <form role='form' class='form-group'>
               <input ng-model='task.status' ng-true-value='0' ng-false-value='1'
@@ -65,9 +68,9 @@
     </article>
 
     <section id='listControls'>
-      <button type="button" class="btn btn-primary custom">All</button>
-      <button type="button" class="btn btn-primary custom">Active</button>
-      <button type="button" class="btn btn-primary custom">Complete</button>
+      <button type="button" ng-click='listCtrl.filter=""' class="btn btn-primary custom">All</button>
+      <button type="button" ng-click='listCtrl.filter=1' class="btn btn-primary custom">Active</button>
+      <button type="button" ng-click='listCtrl.filter=0' class="btn btn-primary custom">Complete</button>
       <button type="button" class="btn btn-primary custom">Clear All</button>
     </section>
   </main>
