@@ -44,8 +44,8 @@
             <form role='form' class='form-group'>
               <input ng-model='task.status' ng-true-value='0' ng-false-value='1'
               id='todoItem' ng-click='listCtrl.storeData()' type="checkbox" /> 
-              <span>
-                <input class='form-control readTask' readonly 
+              <span >
+                <input ng-class='{strike: !task.status}' class='form-control readTask' readonly 
                   ng-show='!listCtrl.isToEdit($index)' 
                   ng-click='listCtrl.toggleEdit($index)' value='{{ task.name }}'
                   type='text' />
