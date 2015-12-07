@@ -8,7 +8,7 @@ The [desired product](#desired-product) is a toDo list as a single page web appl
 
 The product can be previewed on [Heroku](https://minimal-todo-list.herokuapp.com/).
 
-As always at [Makers Academy], the approach is TDD. For testing I have used Karma and Protractor.
+As always at [Makers Academy](http://www.makersacadamy.com), the approach is TDD. For testing I have used Karma and Protractor.
 
 The app uses the new HTML5 persistent local storage and Bootstrap for the layout.
 
