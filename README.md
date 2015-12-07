@@ -12,11 +12,21 @@ As always at [Makers Academy](http://www.makersacadamy.com), the approach is TDD
 
 The app uses the new HTML5 persistent local storage and Bootstrap for the layout.
 
-## Installation Instructions
+## Usage Instructions
 
+### Installation
 * Fork the repo
 * Run `bundle install`, `npm install` and `bower install`  
+
+### Run app
 * Run `rackup` and visit `localhost:9292`
+
+### Run unit tests
+* `karma start test/karma.conf.js`
+
+### Run feature tests
+* `webdriver-manager start`  # in separate console
+* `protractor test/e2e/conf.js`
 
 ## The Desired Product
 
