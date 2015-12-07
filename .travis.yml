@@ -1,11 +1,14 @@
 script:
-  #- npm test --single-run
-  #- node_modules/.bin/protractor test/e2e/conf.js --browser=firefox
-  - npm run test-karma --single-run
-  - npm run test-protractor --single-run
+  - npm test --single-run
+  - node_modules/.bin/protractor test/e2e/conf.js --browser=firefox
+  #- npm run test-karma --single-run
+  #- npm run test-protractor --single-run
+    
 language: node_js
+
 node_js:
   - "0.10"
+
 before_script:
   - node_modules/bower/bin/bower install
   - "export DISPLAY=:99.0"
