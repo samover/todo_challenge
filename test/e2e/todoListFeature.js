@@ -5,7 +5,7 @@ describe( 'A minimal toDo list', function() {
     browser.get( 'http://localhost:9292' );
   });
 
-  xit( 'has a title', function() {
+  it( 'has a title', function() {
     expect( browser.getTitle() ).toEqual( 'A Minimal Todo List Built with AngularJS' );
   });
 
@@ -23,7 +23,7 @@ describe( 'A minimal toDo list', function() {
       browser.executeScript('localStorage.clear();');
     });
 
-    xit( 'adds a a new task', function() {
+    it( 'adds a a new task', function() {
       expect(newItem.getAttribute('value')).toEqual( 'A new task to do' );
     });
 
@@ -38,7 +38,7 @@ describe( 'A minimal toDo list', function() {
       expect(newItem.getAttribute('value')).toEqual( 'An edited task' );
     });
 
-    xit( 'is not marked as done', function() {
+    it( 'is not marked as done', function() {
       expect(tickComplete.isSelected()).toBe(false);
       expect(newItem.getCssValue('text-decoration')).toEqual('none');
     });
@@ -72,17 +72,17 @@ describe( 'A minimal toDo list', function() {
       browser.executeScript('localStorage.clear();');
     });
 
-    xit( 'can show only tasks that are active', function() {
+    it( 'can show only tasks that are active', function() {
       viewActive.click();
       expect(element.all(by.className('inputTask')).count()).toEqual(2);
     });
 
-    xit( 'can show only tasks that are completed', function() {
+    it( 'can show only tasks that are completed', function() {
       viewCompleted.click();
       expect(element.all(by.className('inputTask')).count()).toEqual(1);
     });
 
-    xit( 'can show all tasks, completed and active', function() {
+    it( 'can show all tasks, completed and active', function() {
       viewAll.click();
       expect(element.all(by.className('inputTask')).count()).toEqual(3);
     });
