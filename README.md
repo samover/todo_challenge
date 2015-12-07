@@ -10,6 +10,14 @@ The product can be previewed on [Heroku](https://minimal-todo-list.herokuapp.com
 
 As always at [Makers Academy], the approach is TDD. For testing I have used Karma and Protractor.
 
+The app uses the new HTML5 persistent local storage and Bootstrap for the layout.
+
+## Installation Instructions
+
+* Fork the repo
+* Run `bundle install`, `npm install` and `bower install`  
+* Run `rackup` and visit `localhost:9292`
+
 ## The Desired Product
 
 ![Todo mockup](https://makersacademy.mybalsamiq.com/mockups/2914603.png?key=afabb09aef2901a2732515ae4349c1ec0458294b)
