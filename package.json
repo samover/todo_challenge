@@ -7,7 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/bower/bin/bower install" 
   },
   "repository": {
     "type": "git",
@@ -30,8 +31,5 @@
   },
   "dependencies": {
     "bower": "^1.6.9"
-  },
-  "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install" 
   }
 }
