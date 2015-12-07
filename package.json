@@ -9,7 +9,8 @@
   "scripts": {
     "test": "npm run test-karma && npm run test-protractor",
     "test-karma": "karma start test/karma.conf.js --single-run",
-    "test-protractor": "protractor test/e2e/conf.js --browser=firefox"
+    "test-protractor": "protractor test/e2e/conf.js --browser=firefox",
+    "postinstall": "./node_modules/bower/bin/bower install" 
   },
   "repository": {
     "type": "git",
@@ -32,8 +33,5 @@
   },
   "dependencies": {
     "bower": "^1.6.9"
-  },
-  "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install" 
   }
 }

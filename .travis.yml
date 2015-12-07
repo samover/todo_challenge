@@ -1,8 +1,8 @@
 script:
-  - npm test --single-run
-  - node_modules/.bin/protractor test/e2e/conf.js --browser=firefox
-  #- npm run test-karma --single-run
-  #- npm run test-protractor --single-run
+  #- npm test --single-run
+  #- node_modules/.bin/protractor test/e2e/conf.js --browser=firefox
+  - npm run test-karma --single-run
+  - npm run test-protractor --single-run
     
 language: node_js
 
