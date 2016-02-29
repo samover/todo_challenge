@@ -1,6 +1,4 @@
-# Todo Challenge [![Build Status](https://travis-ci.org/samover/todo_challenge.svg?branch=master)](https://travis-ci.org/samover/todo_challenge) 
-
-![screenshot](/public/images/screenshot.png)
+# Todo Challenge
 
 ## Way of Approaching the Challenge
 
@@ -11,6 +9,8 @@ The product can be previewed on [Heroku](https://minimal-todo-list.herokuapp.com
 As always at [Makers Academy](http://www.makersacadamy.com), the approach is TDD. For testing I have used Karma and Protractor.
 
 The app uses the new HTML5 persistent local storage and Bootstrap for the layout.
+
+![screenshot](/public/images/screenshot.png)
 
 ## Usage Instructions
 
